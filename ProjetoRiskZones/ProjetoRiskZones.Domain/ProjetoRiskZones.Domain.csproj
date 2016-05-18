@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{06CE050A-767F-4B1D-8850-CDD54B424F93}</ProjectGuid>
+    <ProjectGuid>{A41A3DB3-5165-4DD1-B8CC-71490E63ACE1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ProjetoRiskZones.Domain</RootNamespace>

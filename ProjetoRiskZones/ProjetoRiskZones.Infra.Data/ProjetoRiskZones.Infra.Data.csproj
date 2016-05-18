@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{338FAFC4-2FD6-40A6-94DF-5EA49575D5C6}</ProjectGuid>
+    <ProjectGuid>{89A1C4B1-3304-4830-B8B9-4714F8372C32}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ProjetoRiskZones.Infra.Data</RootNamespace>
@@ -41,6 +41,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProjetoRiskZones.Domain\ProjetoRiskZones.Domain.csproj">
+      <Project>{a41a3db3-5165-4dd1-b8cc-71490e63ace1}</Project>
+      <Name>ProjetoRiskZones.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Contexto\" />
+    <Folder Include="EntityConfig\" />
+    <Folder Include="Repositories\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
