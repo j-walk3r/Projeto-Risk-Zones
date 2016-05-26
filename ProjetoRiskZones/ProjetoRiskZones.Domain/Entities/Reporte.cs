@@ -4,7 +4,7 @@ namespace ProjetoRiskZones.Domain.Entities
 {
     public class Reporte
     {
-        public int ReporteID { get; set; }
+        public int IDReporte { get; set; }
         public string Logitude { get; set; }
         public string Latitude { get; set; }
         public string Status { get; set; }

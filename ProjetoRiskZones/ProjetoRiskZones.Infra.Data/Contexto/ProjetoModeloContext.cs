@@ -1,14 +1,11 @@
 ﻿using ProjetoRiskZones.Domain.Entities;
-using System;
-using System.Collections.Generic;
+using ProjetoRiskZones.Infra.Data.EntityConfig;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace ProjetoRiskZones.Infra.Data.Contexto
 {
-    class ProjetoModeloContext : DbContext
+    public class ProjetoModeloContext : DbContext
     {
 
         public ProjetoModeloContext()
@@ -18,5 +15,53 @@ namespace ProjetoRiskZones.Infra.Data.Contexto
         }
         //BdSet: Comando pra criar a tabela da class
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Sintoma> Sintomas { get; set; }
+        public DbSet<Risco> Riscos { get; set; }
+        public DbSet<Reporte> Reportes { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            //Não plularilar as tabelas do banco
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            //Não deletar itens em cascatas, com relação de um pra muitos
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            //Não delatar relação em cascata
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+
+            //Toda vez que tiver numa entidade diver "Id" ser uma Primerkey 
+            modelBuilder.Properties()
+                .Where(p => p.Name == p.ReflectedType.Name + "Id")
+                .Configure(p => p.IsKey());
+            //Inperdir que as classe tipo string não seja tipo "Nvarch" q ucupa mais espaço
+            modelBuilder.Properties<string>()
+                .Configure(p => p.HasColumnType("varchar"));
+
+            modelBuilder.Properties<string>()
+                .Configure(p => p.HasMaxLength(100));
+
+            modelBuilder.Configurations.Add(new UsuarioConfiguration());
+            modelBuilder.Configurations.Add(new SintomaConfiguration());
+            modelBuilder.Configurations.Add(new ReporteConfiguration());
+            modelBuilder.Configurations.Add(new RiscoConfiguration());
+
+
+        }
+
+        public override int SaveChanges()
+        {
+            /*foreach (var entry in ChangeTracker.Entries().Where(entry => entry.Entity.GetType().GetType().GetProperty("DataCadastro") != null))
+            {
+                if (entry.State == EntityState.Added)
+                {
+                    entry.Property("DataCadastro").CurrentValue = DateTime.Now;
+                }
+
+                if (entry.State == EntityState.Modified)
+                {
+                    entry.Property("DataCadastro").IsModified = false;
+                }
+            }*/
+            return base.SaveChanges();
+        }
     }
 }

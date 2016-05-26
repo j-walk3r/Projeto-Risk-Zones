@@ -19,7 +19,7 @@ namespace ProjetoRiskZones.Domain.Entities
         public DateTime Nascimento { get; set; }
         public bool ISMembro { get; set; }
 
-        // public virtual IEquatable<Reporte> Reportes { get; set; }
+        public virtual IEquatable<Reporte> Reportes { get; set; }
 
     }
 }
