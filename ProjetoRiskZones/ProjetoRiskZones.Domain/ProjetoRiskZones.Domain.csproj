@@ -34,10 +34,14 @@
     <Compile Include="Entities\Risco.cs" />
     <Compile Include="Entities\Sintoma.cs" />
     <Compile Include="Entities\Usuario.cs" />
+    <Compile Include="Interfaces\Repositories\IReporteRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IUsuarioRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ISintomaRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IRiscoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IRepositoryBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Interfaces\Repositories\" />
     <Folder Include="Interfaces\Services\" />
     <Folder Include="Services\" />
   </ItemGroup>
