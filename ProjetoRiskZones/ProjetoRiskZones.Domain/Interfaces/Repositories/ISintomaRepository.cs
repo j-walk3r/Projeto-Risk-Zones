@@ -2,7 +2,7 @@
 
 namespace ProjetoRiskZones.Domain.Interfaces.Repositories
 {
-    interface ISintomaRepository : IRepositoryBase<Sintoma>
+    public interface ISintomaRepository : IRepositoryBase<Sintoma>
     {
     }
 }

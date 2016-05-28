@@ -2,7 +2,7 @@
 
 namespace ProjetoRiskZones.Domain.Interfaces.Repositories
 {
-    interface IUsuarioRepository : IRepositoryBase<Usuario>
+    public interface IUsuarioRepository : IRepositoryBase<Usuario>
     {
     }
 }

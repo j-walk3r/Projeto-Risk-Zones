@@ -2,7 +2,7 @@
 
 namespace ProjetoRiskZones.Domain.Interfaces.Repositories
 {
-    interface IRiscoRepository : IRepositoryBase<Risco>
+    public interface IRiscoRepository : IRepositoryBase<Risco>
     {
     }
 }

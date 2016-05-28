@@ -56,6 +56,11 @@
     <Compile Include="EntityConfig\UsuarioConfiguration.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\SintomaRepository.cs" />
+    <Compile Include="Repositories\UsuarioRepository.cs" />
+    <Compile Include="Repositories\ReporteRepository.cs" />
+    <Compile Include="Repositories\RepositoryBase.cs" />
+    <Compile Include="Repositories\RiscoRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProjetoRiskZones.Domain\ProjetoRiskZones.Domain.csproj">
@@ -63,9 +68,7 @@
       <Name>ProjetoRiskZones.Domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
