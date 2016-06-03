@@ -21,7 +21,7 @@ namespace ProjetoRiskZones.Infra.Data.Contexto
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //Não plularilar as tabelas do banco
+            //Não plularizar as tabelas do banco
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             //Não deletar itens em cascatas, com relação de um pra muitos
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
@@ -32,7 +32,7 @@ namespace ProjetoRiskZones.Infra.Data.Contexto
             modelBuilder.Properties()
                 .Where(p => p.Name == p.ReflectedType.Name + "Id")
                 .Configure(p => p.IsKey());
-            //Inperdir que as classe tipo string não seja tipo "Nvarch" q ucupa mais espaço
+            //Inperdir que as classe tipo string não seja tipo "Nvarch" que ocupa mais espaço
             modelBuilder.Properties<string>()
                 .Configure(p => p.HasColumnType("varchar"));
 
