@@ -20,12 +20,14 @@ namespace ProjetoRiskZones.Infra.Data.Contexto
         public DbSet<Reporte> Reportes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            //Não plularizar as tabelas do banco
+        {  
+            //Desabilitando algumas convenções
+
+            //Não plulariza as tabelas do banco
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            //Não deletar itens em cascatas, com relação de um pra muitos
+            //Não deleta itens em cascatas, com relação de um pra muitos
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
-            //Não delatar relação em cascata
+            //Não deleta relação em cascata, com relação de muitos pra muitos
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
 
             //Toda vez que tiver numa entidade diver "Id" ser uma Primerkey 
@@ -38,7 +40,7 @@ namespace ProjetoRiskZones.Infra.Data.Contexto
 
             modelBuilder.Properties<string>()
                 .Configure(p => p.HasMaxLength(100));
-
+            
             modelBuilder.Configurations.Add(new UsuarioConfiguration());
             modelBuilder.Configurations.Add(new SintomaConfiguration());
             modelBuilder.Configurations.Add(new ReporteConfiguration());
